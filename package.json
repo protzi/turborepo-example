@@ -1,5 +1,5 @@
 {
-  "name": "klickly-turbo-example",
+  "name": "turborepo-example",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -10,12 +10,16 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "changeset:create": "changeset",
+    "changeset:apply": "changeset version",
+    "changeset:publish": "changeset publish",
+    "release": "npm run build && npm run changeset:publish"
   },
   "devDependencies": {
-    "eslint-config-custom": "latest",
-    "prettier": "latest",
-    "turbo": "latest"
+    "@changesets/cli": "2.22.0",
+    "prettier": "2.6.2",
+    "turbo": "1.2.3"
   },
   "engines": {
     "npm": ">=7.0.0",
